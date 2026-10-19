@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfólio de Idol Ferrão.">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Idol Ferrão">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Idol Ferrão — Portfólio">
+<meta property="og:description" content="Portfólio de Idol Ferrão.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Idol Ferrão — Portfólio</title>
+<style>
+:root{
+  --black:#060606;
+  --black-2:#111110;
+  --white:#f5f5f0;
+  --muted:#d78e34;
+  --line:#292927;
+  --metal:#85837c;
+  --pad:clamp(1.25rem,4vw,4.5rem);
+  --display:clamp(4.4rem,11.5vw,11rem);
+  --heading:clamp(2.8rem,6vw,6rem);
+  --space-xl:clamp(5rem,13vw,12rem);
+  --space-lg:clamp(3rem,8vw,8rem);
+  --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --display-font:"Arial Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  background:var(--black);
+}
+body{
+  min-height:100vh;
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--sans);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{
+  background:var(--white);
+  color:var(--black);
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+:focus-visible{
+  outline:1px solid var(--white);
+  outline-offset:5px;
+}
+.site-shell{
+  width:min(100%,1440px);
+  margin-inline:auto;
+  padding-inline:var(--pad);
+}
+.eyebrow,
+.section-number{
+  color:var(--muted);
+  font-size:.67rem;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.site-header{
+  position:absolute;
+  z-index:10;
+  inset:0 0 auto;
+  padding-top:1.5rem;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.nav-links{
+  display:none;
+  gap:clamp(1.5rem,3vw,3rem);
+  color:var(--muted);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.nav-links a{
+  transition:color .18s ease;
+}
+.nav-links a:hover{
+  color:var(--white);
+}
+.hero{
+  min-height:100svh;
+  display:grid;
+  align-items:end;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  width:100%;
+  display:grid;
+  gap:3rem;
+  padding-top:8rem;
+  padding-bottom:clamp(3rem,7vw,6rem);
+}
+.hero-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:2rem;
+  color:var(--muted);
+  font-size:.68rem;
+  letter-spacing:.1em;
+  line-height:1.5;
+  text-transform:uppercase;
+}
+.hero-meta span:last-child{
+  text-align:right;
+}
+.hero-title{
+  max-width:11ch;
+  font-family:var(--display-font);
+  font-size:var(--display);
+  font-weight:900;
+  line-height:.82;
+  letter-spacing:-.075em;
+  text-transform:uppercase;
+}
+.hero-title span{
+  display:block;
+}
+.hero-title span:last-child{
+  margin-left:clamp(1rem,9vw,10rem);
+}
+.hero-bottom{
+  display:grid;
+  gap:2rem;
+  align-items:end;
+}
+.hero-description{
+  max-width:28rem;
+  color:#c1c1bb;
+  font-size:clamp(1rem,1.5vw,1.2rem);
+  line-height:1.4;
+}
+.hero-index{
+  display:none;
+  color:var(--muted);
+  font-size:.68rem;
+  letter-spacing:.14em;
+}
+.hero-line{
+  position:absolute;
+  top:18%;
+  right:var(--pad);
+  width:1px;
+  height:52%;
+  background:var(--line);
+}
+.hero-line::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:1px;
+  height:24%;
+  background:var(--metal);
+}
+section{
+  border-bottom:1px solid var(--line);
+}
+.section{
+  padding-block:var(--space-xl);
+}
+.section-grid{
+  display:grid;
+  gap:var(--space-lg);
+}
+.section-heading{
+  max-width:9ch;
+  margin-top:1rem;
+  font-family:var(--display-font);
+  font-size:var(--heading);
+  font-weight:900;
+  line-height:.88;
+  letter-spacing:-.065em;
+  text-transform:uppercase;
+}
+.about-content{
+  display:grid;
+  gap:3rem;
+}
+.about-lead{
+  max-width:44rem;
+  font-size:clamp(1.35rem,3vw,2.5rem);
+  line-height:1.18;
+  letter-spacing:-.025em;
+}
+.about-details{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  margin-top:3rem;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.detail{
+  min-height:7rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:1.25rem;
+  background:var(--black);
+}
+.detail-label{
+  color:var(--muted);
+  font-size:.61rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.detail-value{
+  font-size:.95rem;
+  font-weight:650;
+}
+.profile-frame{
+  width:min(100%,22rem);
+  aspect-ratio:4/5;
+  margin-inline:auto;
+  display:grid;
+  place-items:center;
+  position:relative;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(135deg,transparent 49.8%,var(--line) 50%,transparent 50.2%),
+    linear-gradient(45deg,transparent 49.8%,var(--line) 50%,transparent 50.2%);
+}
+.profile-frame::before{
+  content:"";
+  position:absolute;
+  inset:.75rem;
+  border:1px solid #222220;
+}
+.profile-label{
+  position:relative;
+  color:var(--muted);
+  font-size:.65rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.skills-grid{
+  display:grid;
+  gap:1px;
+  margin-top:4rem;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.skill-group{
+  min-height:18rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:3rem;
+  padding:clamp(1.5rem,4vw,3rem);
+  background:var(--black);
+}
+.skill-group:first-child{
+  background:var(--black-2);
+}
+.skill-group-head{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.skill-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem 1rem;
+  list-style:none;
+}
+.skill-list li{
+  font-family:var(--display-font);
+  font-size:clamp(1.7rem,3.2vw,3.2rem);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.skill-list li:not(:last-child)::after{
+  content:"/";
+  margin-left:1rem;
+  color:var(--metal);
+  font-weight:400;
+}
+.skill-note{
+  max-width:24rem;
+  color:var(--muted);
+  font-size:.8rem;
+}
+.projects-intro{
+  display:grid;
+  gap:2rem;
+}
+.projects-intro p{
+  max-width:30rem;
+  color:var(--muted);
+}
+.project-list{
+  display:grid;
+  gap:1px;
+  margin-top:4rem;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.project-card{
+  min-height:18rem;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  gap:2rem;
+  padding:clamp(1.5rem,4vw,3rem);
+  background:var(--black);
+  transition:background .18s ease;
+}
+.project-card:hover{
+  background:var(--black-2);
+}
+.project-top{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:.63rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.project-name{
+  align-self:center;
+  font-family:var(--display-font);
+  font-size:clamp(2rem,4.5vw,4.5rem);
+  font-weight:900;
+  line-height:.9;
+  letter-spacing:-.06em;
+  text-transform:uppercase;
+}
+.project-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:2rem;
+}
+.project-description{
+  max-width:22rem;
+  color:var(--muted);
+  font-size:.78rem;
+}
+.project-arrow{
+  width:2.5rem;
+  height:2.5rem;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  transition:
+    background .18s ease,
+    color .18s ease,
+    border-color .18s ease;
+}
+.project-card:hover .project-arrow{
+  background:var(--white);
+  color:var(--black);
+  border-color:var(--white);
+}
+.contact{
+  min-height:80svh;
+  display:grid;
+  align-items:center;
+}
+.contact-grid{
+  display:grid;
+  gap:var(--space-lg);
+}
+.contact-title{
+  max-width:10ch;
+  margin-top:1rem;
+  font-family:var(--display-font);
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:900;
+  line-height:.82;
+  letter-spacing:-.075em;
+  text-transform:uppercase;
+}
+.contact-links{
+  display:grid;
+  border-top:1px solid var(--line);
+}
+.contact-link{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:2rem;
+  padding-block:1.15rem;
+  border-bottom:1px solid var(--line);
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  transition:
+    padding-left .18s ease,
+    color .18s ease;
+}
+.contact-link span:last-child{
+  color:var(--metal);
+}
+.contact-link:hover{
+  padding-left:.75rem;
+  color:#d0d0ca;
+}
+footer{
+  padding-block:1.5rem;
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:2rem;
+  color:var(--muted);
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+@media(min-width:700px){
+  .nav-links{
+    display:flex;
+  }
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+  .hero-meta{grid-column:1/-1;}
+  .hero-main{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(2rem,5vw,5rem);
+  }
+  .hero-portrait{min-height:0;aspect-ratio:4/5;height:min(66vh,690px);}
+  .hero-title{font-size:clamp(4rem,8vw,8.5rem);align-self:center;}
+  .hero-title span:last-child{margin-left:clamp(.5rem,3vw,3rem)}
+  .hero-bottom{grid-column:1/-1;grid-template-columns:1fr auto;}
+  .hero-index{
+    display:block;
+  }
+  .section-grid{
+    grid-template-columns:minmax(10rem,.3fr) minmax(0,1fr);
+    gap:clamp(2rem,7vw,8rem);
+  }
+  .about-content{
+    grid-template-columns:minmax(0,1fr) 16rem;
+    gap:clamp(2rem,7vw,7rem);
+  }
+  .profile-frame{
+    width:100%;
+    margin-top:1rem;
+  }
+  .skills-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .project-list{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .contact-grid{
+    grid-template-columns:.9fr 1fr;
+    align-items:end;
+  }
+}
+@media(min-width:1100px){
+  .hero-grid{
+    grid-template-columns:1fr;
+    align-items:end;
+    min-height:100svh;
+    gap:1.5rem;
+  }
+  .hero-meta{
+    grid-column:1;
+    grid-row:1;
+    align-self:start;
+    flex-direction:row;
+    align-items:start;
+    padding-top:1rem;
+  }
+  .hero-meta span:last-child{text-align:right;}
+  .hero-main{grid-row:2;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);align-items:center;}
+  .hero-portrait{height:min(68vh,740px);aspect-ratio:auto;}
+  .hero-title{font-size:clamp(5rem,8.3vw,9rem);}
+  .hero-title span:last-child{margin-left:clamp(1rem,3vw,4rem)}
+  .hero-bottom{grid-column:1;grid-row:3;grid-template-columns:1fr auto;}
+  .hero-description{margin-left:0;}
+  .section-grid{
+    grid-template-columns:.28fr 1fr;
+  }
+  .about-content{
+    grid-template-columns:minmax(0,1fr) 18rem;
+  }
+  .project-card:nth-child(1){
+    min-height:25rem;
+  }
+  .project-card:nth-child(2){
+    min-height:20rem;
+    margin-top:5rem;
+  }
+  .project-card:nth-child(3){
+    min-height:20rem;
+    margin-top:-2rem;
+  }
+  .project-card:nth-child(4){
+    min-height:25rem;
+    margin-top:3rem;
+  }
+}
+/* Acabamento visual subtil: molduras, movimentos discretos e entrada suave */
+.hero-grid{padding-top:7rem;}
+.hero-main{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:clamp(2rem,5vw,5rem);
+  align-items:center;
+}
+.hero-portrait{
+  position:relative;
+  isolation:isolate;
+  width:100%;
+  min-height:45vh;
+  aspect-ratio:4/5;
+  max-height:72vh;
+  overflow:hidden;
+  border:1px solid #686861;
+  padding:.55rem;
+  background:#111110;
+  animation:fade-up .8s ease both;
+}
+.hero-portrait::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:1rem;
+  border:1px solid rgba(245,245,240,.42);
+  pointer-events:none;
+  transition:inset .35s ease,border-color .35s ease;
+}
+.hero-portrait::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:.55rem;
+  background:linear-gradient(180deg,rgba(10,10,10,.04) 45%,rgba(10,10,10,.72));
+  pointer-events:none;
+}
+.hero-portrait img{
+  display:block;
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0;
+  object-fit:cover;
+  object-position:center;
+  filter:grayscale(100%);
+  transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s ease;
+}
+.hero-portrait:hover::before{inset:.8rem;border-color:rgba(245,245,240,.72)}
+.hero-portrait:hover img{transform:scale(1.025);filter:grayscale(65%)}
+.portrait-index,.portrait-caption{
+  position:absolute;
+  z-index:3;
+  bottom:1.5rem;
+  color:var(--white);
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.portrait-index{left:1.5rem}
+.portrait-caption{right:1.5rem;color:#c1c1bb}
+.hero-title{animation:fade-up .8s .12s ease both}
+.hero-bottom{animation:fade-up .8s .22s ease both}
+.detail,.skill-group,.project-card,.ambition-list li,.contact-link{
+  transition:background .25s ease,border-color .25s ease,padding-left .25s ease,transform .25s ease;
+}
+.detail:hover,.project-card:hover{background:#141412}
+.ambition-list li:hover{padding-left:.6rem;background:linear-gradient(90deg,rgba(245,245,240,.035),transparent)}
+.skill-group:hover{background:#151513}
+@keyframes fade-up{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(min-width:700px){
+  .hero-main{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(2rem,5vw,5rem);
+  }
+  .hero-portrait{min-height:0;aspect-ratio:4/5;height:min(66vh,690px);}
+  .hero-title{font-size:clamp(4rem,8vw,8.5rem);align-self:center;}
+  .hero-title span:last-child{margin-left:clamp(.5rem,3vw,3rem);}
+}
+@media(min-width:1100px){
+  .hero-grid{grid-template-columns:1fr;align-items:end;min-height:100svh;gap:1.5rem;}
+  .hero-meta{grid-column:1;grid-row:1;align-self:start;flex-direction:row;align-items:start;padding-top:1rem;}
+  .hero-meta span:last-child{text-align:right;}
+  .hero-main{grid-row:2;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);align-items:center;}
+  .hero-portrait{height:min(68vh,740px);aspect-ratio:auto;}
+  .hero-title{font-size:clamp(5rem,8.3vw,9rem);}
+  .hero-title span:last-child{margin-left:clamp(1rem,3vw,4rem);}
+  .hero-bottom{grid-column:1;grid-row:3;grid-template-columns:1fr auto;}
+  .hero-description{margin-left:0;}
+}
+@media(max-width:699px){
+  .hero{min-height:auto;}
+  .hero-grid{padding-top:6.5rem;padding-bottom:2.5rem;gap:2rem;}
+  .hero-main{gap:1.5rem;}
+  .hero-portrait{min-height:0;aspect-ratio:4/5;max-height:none;}
+  .hero-title{font-size:clamp(3.2rem,12vw,5.2rem);letter-spacing:-.08em;}
+  .hero-title span:last-child{margin-left:.4rem;}
+  .portrait-index,.portrait-caption{font-size:.5rem;bottom:1.2rem;}
+  .portrait-index{left:1.2rem}.portrait-caption{right:1.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
+
+.objectives-copy{display:grid;gap:1.5rem;margin-top:2rem;max-width:52rem}
+.objectives-copy p{color:#c1c1bb;font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.75}
+.ambition-list{list-style:none;display:grid;gap:0;margin-top:4rem;border-top:1px solid var(--line)}
+.ambition-list li{padding:1.35rem 0;border-bottom:1px solid var(--line);font-size:clamp(1rem,2vw,1.35rem);line-height:1.45}
+.ambition-list li::before{content:"—";color:var(--metal);margin-right:1rem}
+
+/* Composição principal: fotografia e nome em duas metades equilibradas */
+.hero{
+  min-height:100svh;
+  align-items:center;
+}
+.hero-grid{
+  padding-top:7.5rem;
+  padding-bottom:clamp(2.5rem,5vw,4.5rem);
+  gap:clamp(1.5rem,3vw,2.75rem);
+}
+.hero-main{
+  width:100%;
+  grid-template-columns:minmax(0,1fr);
+  gap:clamp(1.5rem,3vw,3rem);
+  align-items:stretch;
+}
+.hero-portrait{
+  width:100%;
+  min-height:0;
+  height:clamp(24rem,65vh,46rem);
+  aspect-ratio:auto;
+  border:1px solid #5b5b55;
+  border-radius:16px;
+  padding:.55rem;
+  background:#10100f;
+  box-shadow:0 0 0 1px rgba(245,245,240,.035), inset 0 0 0 1px rgba(245,245,240,.025);
+}
+.hero-portrait::before{
+  inset:1.15rem;
+  border:1px solid rgba(245,245,240,.42);
+  border-radius:10px;
+}
+.hero-portrait::after{
+  inset:.55rem;
+  border-radius:10px;
+  background:linear-gradient(180deg,rgba(10,10,10,.02) 45%,rgba(10,10,10,.56));
+}
+.hero-portrait img{
+  border-radius:10px;
+}
+.hero-title{
+  align-self:center;
+  max-width:none;
+  font-size:clamp(4rem,8vw,8.5rem);
+  line-height:.86;
+  letter-spacing:-.075em;
+  overflow-wrap:normal;
+}
+.hero-title span:last-child{
+  margin-left:clamp(.5rem,2.2vw,2rem);
+}
+.hero-bottom{
+  padding-top:1.25rem;
+  border-top:1px solid var(--line);
+}
+.hero-line{opacity:.65}
+@media(min-width:700px){
+  .hero-main{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(1.5rem,3.2vw,3.5rem);
+    align-items:center;
+  }
+  .hero-portrait{height:clamp(28rem,64vh,45rem);}
+  .hero-title{font-size:clamp(4rem,6.5vw,7.5rem);}
+}
+@media(min-width:1100px){
+  .hero-grid{grid-template-columns:1fr;min-height:100svh;}
+  .hero-meta{grid-column:1;grid-row:1;flex-direction:row;align-items:start;padding-top:0;}
+  .hero-main{
+    grid-column:1;
+    grid-row:2;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(2.5rem,5vw,5rem);
+  }
+  .hero-portrait{height:min(66vh,44rem);}
+  .hero-title{font-size:clamp(5rem,7.6vw,9rem);}
+  .hero-bottom{grid-column:1;grid-row:3;}
+}
+@media(max-width:699px){
+  .hero{min-height:auto;align-items:stretch;}
+  .hero-grid{padding-top:6.25rem;padding-bottom:2.5rem;}
+  .hero-main{grid-template-columns:minmax(0,1fr);gap:1.6rem;}
+  .hero-portrait{height:auto;aspect-ratio:4/4.5;max-height:none;}
+  .hero-title{font-size:clamp(3.7rem,14vw,5.5rem);}
+  .hero-title span:last-child{margin-left:.35rem;}
+  .hero-bottom{gap:1rem;}
+}
+
+/* Foto na secção 02 / Perfil */
+.profile-frame{overflow:hidden}
+.profile-frame::before{z-index:2;pointer-events:none}
+.profile-frame img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:85% 45%;
+}
+
+/* Foto de perfil por baixo de "02 / Perfil" */
+.hero-portrait img{object-position:center 30%}
+.profile-frame{margin-inline:0;margin-top:1.5rem}
+@media(min-width:700px){
+  .about-content{grid-template-columns:minmax(0,1fr)}
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="site-shell nav" aria-label="Navegação principal">
+    <a class="brand" href="#inicio" aria-label="Idol Ferrão, início">IF / 01</a>
+<div class="nav-links">
+  <a href="#sobre">Sobre</a>
+  <a href="#habilidades">Objectivos</a>
+  <a href="#projetos">Ambições</a>
+  <a href="#contacto">Contacto</a>
+  <a href="mailto:juniorferrao010@gmail.com">E-MAIL</a>
+</div>
+  </nav>
+</header>
+<main>
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="site-shell hero-grid">
+<div class="hero-meta">
+  <span>Portfólio / 2026</span>
+  <span>Maputo<br>Moçambique</span>
+</div>
+<div class="hero-main">
+  <div class="hero-portrait" aria-label="Fotografia de Idol Ferrão">
+    <img src="idol-hero.jpg" alt="Fotografia de Idol Ferrão" width="975" height="1300" fetchpriority="high" decoding="async">
+    <span class="portrait-index">IF / 2009</span>
+    <span class="portrait-caption">Perfil pessoal</span>
+  </div>
+  <h1 class="hero-title" id="hero-title">
+    <span>Idol</span>
+    <span>Ferrão</span>
+  </h1>
+</div>
+<div class="hero-bottom">
+  <p class="hero-description">
+    Perfil pessoal, objectivos e ambições profissionais.
+  </p>
+  <span class="hero-index">01 — 05</span>
+</div>
+  </div>
+  <div class="hero-line" aria-hidden="true"></div>
+</section>
+<section class="section" id="sobre" aria-labelledby="sobre-title">
+  <div class="site-shell section-grid">
+    <div><span class="section-number">02 / Perfil</span>
+      <div class="profile-frame">
+        <img src="idol-perfil.jpg" alt="Retrato de Idol Ferrão" width="975" height="1300" loading="lazy" decoding="async">
+      </div>
+    </div> 
+    <div class="about-content">
+
+      <div>
+        <h2 class="section-heading" id="sobre-title">sobre mim </h2>
+
+        <p class="about-lead">Sou Idol Ferrão, tenho 17 anos e sou moçambicano. Procuro crescer pessoal e profissionalmente, investir na minha formação e construir um futuro estável para mim e para a minha família.</p>
+        <div class="about-details">
+          <div class="detail"><span class="detail-label">Idade</span><span class="detail-value">17 anos</span></div>
+          <div class="detail"><span class="detail-label">Nacionalidade</span><span class="detail-value">Moçambicana</span></div>
+          <div class="detail"><span class="detail-label">Nascimento</span><span class="detail-value">24 de Janeiro de 2009</span></div>
+          <div class="detail"><span class="detail-label">Estado civil</span><span class="detail-value">Solteiro</span></div>
+          <div class="detail"><span class="detail-label">Contacto 01</span><span class="detail-value">+258 82 680 7802</span></div>
+          <div class="detail"><span class="detail-label">Contacto 02</span><span class="detail-value">+258 87 680 7804</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="section" id="habilidades" aria-labelledby="habilidades-title">
+  <div class="site-shell section-grid">
+    <div><span class="section-number">03 / Objectivos</span></div>
+    <div>
+      <h2 class="section-heading" id="habilidades-title">Objectivos</h2>
+      <div class="objectives-copy">
+        <p>Crescer profissionalmente, construir uma carreira sólida e alcançar a independência financeira. Pretendo investir na minha formação académica e profissional, adquirir novos conhecimentos e desenvolver competências que me permitam destacar-me na minha área de trabalho.</p>
+        <p>Quero ser um profissional responsável, disciplinado, pontual e dedicado, capaz de enfrentar desafios e encontrar soluções para os problemas. Também desejo conquistar melhores oportunidades de emprego, alcançar posições de maior responsabilidade e, futuramente, ter o meu próprio negócio.</p>
+        <p>Quero aprender a gerir melhor o meu dinheiro, poupar e investir no meu futuro, garantindo uma vida mais estável e confortável para mim e para a minha família. Além disso, pretendo melhorar a minha comunicação, desenvolver capacidades de liderança e construir boas relações profissionais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="projetos" aria-labelledby="projetos-title">
+  <div class="site-shell section-grid">
+    <div><span class="section-number">04 / Ambições</span></div>
+    <div>
+      <div class="projects-intro">
+        <h2 class="section-heading" id="projetos-title">Ambições</h2>
+        <p>Metas que orientam o meu crescimento pessoal, profissional e financeiro.</p>
+      </div>
+      <ul class="ambition-list">
+        <li>Tornar-me um homem bem-sucedido profissionalmente.</li>
+        <li>Alcançar a independência financeira.</li>
+        <li>Construir uma carreira sólida e promissora.</li>
+        <li>Conquistar um bom emprego e alcançar cargos de maior responsabilidade.</li>
+        <li>Criar o meu próprio negócio.</li>
+        <li>Investir em projectos que me proporcionem crescimento financeiro.</li>
+        <li>Adquirir casa própria e construir o meu património.</li>
+        <li>Proporcionar uma vida melhor à minha família.</li>
+        <li>Continuar a estudar e a desenvolver as minhas competências.</li>
+        <li>Construir uma boa reputação e ser respeitado profissionalmente.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section contact" id="contacto" aria-labelledby="contact-title">
+  <div class="site-shell contact-grid">
+<div>
+  <span class="section-number">05 / Contacto</span>
+  <h2 class="contact-title" id="contact-title">Vamos falar.</h2>
+</div>
+<div class="contact-links">
+  <a class="contact-link" href="tel:+258826807802"><span>+258 82 680 7802</span><span>↗</span></a>
+  <a class="contact-link" href="https://wa.me/258826807802"><span>WhatsApp 01</span><span>↗</span></a>
+  <a class="contact-link" href="https://wa.me/258876807804"><span>WhatsApp 02</span><span>↗</span></a>
+  <a class="contact-link" href="mailto:juniorferrao010@gmail.com"><span>Email</span><span>↗</span></a>
+</div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="site-shell footer-inner">
+    <span>Idol Ferrão</span>
+    <span>© 2026</span>
+    <span>Moçambique ,MAPUTO </span>
+  </div>
+</footer>
+</body>
+</html>
